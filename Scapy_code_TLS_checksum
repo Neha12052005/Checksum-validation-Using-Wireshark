@@ -1,0 +1,8 @@
+from scapy.all import *
+
+pkts = rdpcap("capture4.pcapng")
+
+pkt = pkts[7209]   # Wireshark packet 7210
+
+print("IP checksum  :", hex(pkt[IP].chksum))
+print("TCP checksum :", hex(pkt[TCP].chksum))
